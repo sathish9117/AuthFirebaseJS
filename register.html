@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp Page</title>
+
+
+    <link rel="icon" type="icon" href="./images/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <link rel="stylesheet" href="styles/reg.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/header.css">
+
+
+</head>
+
+<body>
+    <header>
+        <div class="head-container">
+            <div class="logo">
+                <h1>
+                    <a href="index.html"><span>Q</span>uote.</a>
+                </h1>
+            </div>
+            <div class="head-content">
+                <nav>
+                    <!-- Before Login -->
+                    <div class="nav-btns">
+                        <a href="/login.html">
+                            <button class="btn login-btn">Login</button>
+                        </a>
+                        <a href="/register.html">
+                            <button class="btn reg-btn">Register</button>
+                        </a>
+                    </div>
+                    <!-- After Login -->
+                    <div class="user-data" hidden>
+                        <ul>
+                            <li>
+                                <img src="./images/person.svg" width="45" alt="">
+                            </li>
+                            <li>
+                                <h1>N Sathish kumar</h1>
+                            </li>
+                            <li>
+                                <button class="btn logout">Logout</button>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </nav>
+
+            </div>
+        </div>
+
+    </header>
+    <div class="container">
+        <div class=" signup-container" id="signup-container">
+            <h1>SignUp Page</h1>
+            <div class="social-group-btn">
+                <button class="icon-btn"><i class="fa-brands fa-google"></i></button>
+                <button class="icon-btn"><i class="fa-brands fa-facebook"></i></button>
+                <button class="icon-btn"><i class="fa-brands fa-twitter"></i></button>
+            </div>
+            <span class="divider">or</span>
+            <form action="" class="signup-form">
+                <div class="messageDiv" id="signUpMessage" style="display: none;"></div>
+                <div class="inputs">
+                    <input id="sname" type="text" title="User Name" placeholder="User Name" />
+                    <input id="semail" type="email" title="Email" placeholder="Email" />
+                    <input id="spwd" type="password" title="Password" placeholder="Password" />
+                    <a href="forgot.html">
+                        <span class="forgot">Forgot Password?</span>
+                    </a>
+                </div>
+                <button type="submit" class="signup-btn" id="submitSignUp">SignUp</button>
+            </form>
+            <span class="divider">or</span><br>
+            <a href="/login.html">
+                <button type="button" class="login-btn">Login</button>
+            </a>
+        </div>
+    </div>
+
+    <!-- script -->
+    <script type="module" src="/js/firebaseConfig.js"></script>
+    <script type="module" src="/js/signup1.js"></script>
+</body>
+
+</html>

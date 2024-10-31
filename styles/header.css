@@ -1,0 +1,51 @@
+header {
+  width: 96%;
+  margin: auto;
+  height: 70px;
+  margin-top: 10px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+ul {
+  list-style: none;
+}
+
+.head-container {
+  width: 90%;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+}
+
+.head-container .head-content {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+
+.user-data ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-data ul li {
+  margin-right: 10px;
+}
+
+.btn {
+  width: 100px;
+  padding: 8px;
+  margin-left: 5px;
+  font-size: 18px;
+}
+
+.logo h1 span {
+  font-size: 35px;
+  /* color: white; */
+}

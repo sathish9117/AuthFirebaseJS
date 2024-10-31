@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Div Display</title>
+    <style>
+        #myDiv {
+            width: 200px;
+            height: 100px;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="myDiv" style="display: hidden;">This is a div!</div>
+    <button onclick="toggleDisplay()">Toggle Display</button>
+
+    <script>
+        function toggleDisplay() {
+
+        }
+        window.addEventListener("click", myFunction);
+
+        function myFunction() {
+
+            const div = document.getElementById('myDiv');
+            if (div.style.display === 'none') {
+                div.style.display = 'block'; // Makes the div visible
+            } else {
+                div.style.display = 'none'; // Hides the div
+            }
+        }
+    </script>
+
+</body>
+
+</html>

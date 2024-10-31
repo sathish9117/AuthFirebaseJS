@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+
+    <link rel="icon" type="icon" href="./images/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <link rel="stylesheet" href="styles/styles.css">
+
+    <link rel="stylesheet" href="styles/header.css">
+
+    <title>Qoute App</title>
+</head>
+
+<body>
+    <header>
+        <div class="head-container">
+            <div class="logo">
+                <h1>
+                    <a href="index.html"><span>Q</span>uote.</a>
+                </h1>
+            </div>
+            <div class="head-content">
+                <nav>
+                    <!-- Before Login -->
+                    <div class="nav-btns" style="display: block;">
+                        <a href="/login.html">
+                            <button class="btn login-btn">Login</button>
+                        </a>
+                        <a href="/register.html">
+                            <button class="btn reg-btn">Register</button>
+                        </a>
+                    </div>
+                    <!-- After Login -->
+                    <div class="user-data" style="display: none;">
+                        <ul>
+                            <li>
+                                <img src="./images/person.svg" width="45" alt="">
+                            </li>
+                            <li>
+                                <h1>N Sathish kumar</h1>
+                            </li>
+                            <li>
+                                <button class="btn logout">Logout</button>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </nav>
+
+            </div>
+        </div>
+
+    </header>
+    <div class="container">
+        <div class="">
+            <h1>Hello</h1>
+            <h1 id="loggedUserName">Name</h1>
+            <h1 id="loggedUserEmail">Email</h1>
+            <button class="btn" id="btnLogout">Logout</button>
+        </div>
+    </div>
+    <script type="module" src="/js/firebaseConfig.js"></script>
+    <script type="module" src="/js/homepage.js"></script>
+</body>
+
+</html>

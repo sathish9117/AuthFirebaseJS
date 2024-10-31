@@ -1,0 +1,19 @@
+.forgot-btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.forgot-btn:hover {
+  filter: brightness(110%);
+}
+
+@media screen and (max-width: 1000px) {
+  .forgot-container {
+    margin: auto 10px;
+  }
+  .forgot-btn {
+    width: 100%;
+  }
+}
