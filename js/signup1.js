@@ -43,13 +43,14 @@ async function signUpUser(email, password, username) {
           email: email,
           username: username,
           uid: user.uid,
+          imageUrl: "",
         };
         const docRef = doc(db, "users", user.uid);
         console.log("User Data: ", docRef);
         setDoc(docRef, userData)
           .then(() => {
             console.log("Data stored");
-            window.location.href = "register.html";
+            window.location.href = "login.html";
           })
           .catch((error) => {
             console.log("Error Writing", error);

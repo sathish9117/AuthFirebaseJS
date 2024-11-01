@@ -26,7 +26,6 @@ onAuthStateChanged(auth, (user) => {
 });
 
 const logoutBtn = document.getElementById("btnLogout");
-const logoutBtnHome = document.getElementById("btnLogoutHome");
 
 let checkCred = () => {
   if (!loggedInUserId) {
@@ -35,21 +34,12 @@ let checkCred = () => {
     console.log("Not Logged");
   } else {
     console.log("999 Logged");
+
     // alert("665 Logged");
   }
 };
 window.addEventListener("load", checkCred);
 logoutBtn.addEventListener("click", () => {
-  localStorage.removeItem("loggedInUserId");
-  signOut(auth)
-    .then(() => {
-      window.location.href = "login.html";
-    })
-    .catch((error) => {
-      console.error("Error Signing out: ", error);
-    });
-});
-logoutBtnHome.addEventListener("click", () => {
   localStorage.removeItem("loggedInUserId");
   signOut(auth)
     .then(() => {
@@ -83,5 +73,3 @@ function getData() {
       console.log("Error getting Document", error);
     });
 }
-
-function signOut() {}
