@@ -35,8 +35,8 @@ signIn.addEventListener("click", (event) => {
 
 let checkCred = () => {
   if (!loggedInUserId) {
-    window.location.href = "login.html";
-    alert("9999 Not Log");
+    // window.location.href = "register.html";
+    // alert("9999 Not Log");
     console.log("Not Logged");
     document.getElementById("not-found").innerText = "Not Found";
   } else {
