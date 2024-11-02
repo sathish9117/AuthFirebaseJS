@@ -12,7 +12,8 @@ import {
 const loggedInUserId = localStorage.getItem("loggedInUserId");
 const userData = document.getElementById("user-data");
 onAuthStateChanged(auth, (user) => {
-  console.log(loggedInUserId);
+  console.log("logged user", loggedInUserId);
+
   checkCred();
   if (loggedInUserId) {
     getData();
@@ -32,6 +33,9 @@ let checkCred = () => {
     window.location.href = "login.html";
     // alert("9999 Not Log");
     console.log("Not Logged");
+    console.log("logged user", loggedInUserId);
+
+    document.getElementById("not-found").innerText = "Not Found";
   } else {
     console.log("999 Logged");
 

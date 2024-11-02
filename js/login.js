@@ -10,6 +10,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
 const signIn = document.getElementById("submitSignIn");
+const loggedInUserId = localStorage.getItem("loggedInUserId");
 
 signIn.addEventListener("click", (event) => {
   event.preventDefault();
@@ -20,7 +21,7 @@ signIn.addEventListener("click", (event) => {
       console.log("Login successful");
       const user = userCredential.user;
       localStorage.setItem("loggedInUserId", user.uid);
-      window.location.href = "index.html";
+      window.location.href = "home.html";
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -31,3 +32,17 @@ signIn.addEventListener("click", (event) => {
       }
     });
 });
+
+let checkCred = () => {
+  if (!loggedInUserId) {
+    window.location.href = "login.html";
+    alert("9999 Not Log");
+    console.log("Not Logged");
+    document.getElementById("not-found").innerText = "Not Found";
+  } else {
+    console.log("999 Logged");
+    window.location.href = "details.html";
+    alert("665 Logged");
+  }
+};
+window.addEventListener("load", checkCred);

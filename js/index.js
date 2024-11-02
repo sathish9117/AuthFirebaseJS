@@ -26,16 +26,18 @@ onAuthStateChanged(auth, (user) => {
 });
 
 const logoutBtn = document.getElementById("btnLogout");
-const logoutBtnHome = document.getElementById("btnLogoutHome");
+// const logoutBtnHome = document.getElementById("btnLogoutHome");
 
 let checkCred = () => {
   if (!loggedInUserId) {
     window.location.href = "login.html";
-    // alert("9999 Not Log");
+    alert("9999  No User ID");
     console.log("Not Logged");
+    document.getElementById("not-found").innerText = "Not Found";
   } else {
     console.log("999 Logged");
-    // alert("665 Logged");
+    // alert("665 User ID");
+    document.getElementById("fun").innerText = "Not Found";
   }
 };
 window.addEventListener("load", checkCred);
@@ -49,16 +51,16 @@ logoutBtn.addEventListener("click", () => {
       console.error("Error Signing out: ", error);
     });
 });
-logoutBtnHome.addEventListener("click", () => {
-  localStorage.removeItem("loggedInUserId");
-  signOut(auth)
-    .then(() => {
-      window.location.href = "login.html";
-    })
-    .catch((error) => {
-      console.error("Error Signing out: ", error);
-    });
-});
+// logoutBtnHome.addEventListener("click", () => {
+//   localStorage.removeItem("loggedInUserId");
+//   signOut(auth)
+//     .then(() => {
+//       window.location.href = "login.html";
+//     })
+//     .catch((error) => {
+//       console.error("Error Signing out: ", error);
+//     });
+// });
 
 function getData() {
   const docRef = doc(db, "users", loggedInUserId);
@@ -68,13 +70,11 @@ function getData() {
     .then((docSnap) => {
       if (docSnap.exists()) {
         const userData = docSnap.data();
-        document.getElementById("loggedUserName").innerText = userData.username;
+        document.getElementById("profilePicIndex").src = userData.imageUrl;
         document.getElementById("loggedUserNameTitle").innerText =
           userData.username;
-        document.getElementById("profilePic").src = userData.imageUrl;
-        document.getElementById("profilePicHome").src = userData.imageUrl;
-        document.getElementById("loggedUserEmail").innerText = userData.email;
-        console.log("userData", userData.imageUrl);
+
+        console.log("userData", userData.username);
       } else {
         console.log("no document found matching id");
       }
@@ -83,5 +83,3 @@ function getData() {
       console.log("Error getting Document", error);
     });
 }
-
-function signOut() {}

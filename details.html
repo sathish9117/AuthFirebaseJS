@@ -24,6 +24,8 @@
 </head>
 
 <body>
+
+    <!-- header -->
     <header>
         <div class="head-container">
             <div class="logo">
@@ -33,12 +35,11 @@
             </div>
             <div class="head-content">
                 <nav>
-
                     <!-- After Login -->
                     <div class="user-data">
                         <ul>
                             <li>
-                                <img src="./images/person.svg" id="profilePic" width="45" alt="">
+                                <img src="./images/person.svg" class="profilePic" id="profilePic" width="45" alt="">
                             </li>
                             <li>
                                 <h1 id="loggedUserNameTitle">N Sathish kumar</h1>
@@ -46,24 +47,27 @@
                             <li>
                                 <button class="btn logout" id="btnLogout">Logout</button>
                             </li>
-
-
                         </ul>
                     </div>
                 </nav>
 
             </div>
         </div>
-
     </header>
+
+    <!-- Main -->
+
     <div class="container">
         <div class="details">
             <img src="./images/person.svg" alt="" id="profilePicHome">
             <h1 id="loggedUserName"></h1>
             <h1 id="loggedUserEmail"></h1>
-            <h1>No Data Found</h1>
+            <h1 id="not-found"></h1>
         </div>
     </div>
+
+    <!-- script -->
+
     <script type="module" src="/js/firebaseConfig.js"></script>
     <script type="module" src="/js/details.js"></script>
 </body>
