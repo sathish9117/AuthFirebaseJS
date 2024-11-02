@@ -31,7 +31,7 @@ const logoutBtn = document.getElementById("btnLogout");
 let checkCred = () => {
   if (!loggedInUserId) {
     window.location.href = "login.html";
-    alert("9999  No User ID");
+    // alert("9999  No User ID");
     console.log("Not Logged");
     document.getElementById("not-found").innerText = "Not Found";
   } else {
@@ -51,16 +51,6 @@ logoutBtn.addEventListener("click", () => {
       console.error("Error Signing out: ", error);
     });
 });
-// logoutBtnHome.addEventListener("click", () => {
-//   localStorage.removeItem("loggedInUserId");
-//   signOut(auth)
-//     .then(() => {
-//       window.location.href = "login.html";
-//     })
-//     .catch((error) => {
-//       console.error("Error Signing out: ", error);
-//     });
-// });
 
 function getData() {
   const docRef = doc(db, "users", loggedInUserId);
