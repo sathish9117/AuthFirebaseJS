@@ -1,0 +1,30 @@
+.add-btn {
+  width: 70%;
+  padding: 12px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.card {
+  height: auto;
+  text-align: center;
+  color: #000;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  padding: 20px 30px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.2);
+}
+.card .lists {
+  width: 280px;
+  max-width: 280px;
+}
+
+@media screen and (max-width: 1000px) {
+  .add-container {
+    margin: auto 10px;
+  }
+  .add-btn {
+    width: 100%;
+  }
+}
