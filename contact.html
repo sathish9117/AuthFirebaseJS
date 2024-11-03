@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Page</title>
+
+    <link rel="icon" type="icon" href="./images/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <link rel="stylesheet" href="styles/styles.css">
+
+    <link rel="stylesheet" href="styles/header.css">
+
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="head-container">
+
+            <div class="logo">
+                <h1>
+                    <a href="index.html"><span>Q</span>uote.</a>
+                </h1>
+            </div>
+
+            <div class="middle-menu">
+                <ul>
+                    <li>
+                        <a href="/home.html">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/about.html">
+                            About
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/contact.html">
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="head-content">
+                <nav>
+
+                    <!-- After Login -->
+                    <div class="user-data">
+                        <ul>
+
+                            <li>
+                                <h1 id="loggedUserName"></h1>
+                            </li>
+                            <li>
+                                <a href="/details.html">
+                                    <img src="./images/person.svg" class="profilePic" id="profilePic" width="45" alt="">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+
+            </div>
+
+        </div>
+
+    </header>
+    <div class="container">
+        <h1 id="not-found"></h1>
+        <h1 id="fun"></h1>
+    </div>
+
+    <script type="module" src="/js/firebaseConfig.js"></script>
+    <script type="module" src="/js/contact.js"></script>
+</body>
+
+</html>

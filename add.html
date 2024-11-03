@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp Page</title>
+
+
+    <link rel="icon" type="icon" href="./images/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="styles/add.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/header.css">
+
+    <style>
+        .quotes-data {
+            width: 95%;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid;
+            margin-top: 10px;
+        }
+
+        .quote-text {
+            font-size: 19px;
+            margin-bottom: 10px;
+        }
+
+        .buttons-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .copy-btn {
+            cursor: pointer;
+            background: black;
+            color: white;
+            border-radius: 5px;
+            padding: 5px 15px;
+            font-size: 16px;
+            align-items: center;
+        }
+
+        .card-content {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="head-container">
+            <div class="logo">
+                <h1>
+                    <a href="index.html"><span>Q</span>uote.</a>
+                </h1>
+            </div>
+            <div class="middle-menu">
+                <ul>
+                    <li>
+                        <a href="/home.html">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/about.html">
+                            About
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/contact.html">
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="head-content">
+                <nav>
+                    <!-- After Login -->
+                    <div class="user-data">
+                        <ul>
+                            <li>
+                                <a href="/details.html">
+                                    <img src="./images/person.svg" class="profilePic" id="profilePic" width="45" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <h1 id="loggedUserNameTitle"></h1>
+                            </li>
+                            <li>
+                                <button class="logout-btn" id="btnLogout"><i class="bi bi-power"></i></button>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- After Login -->
+
+                </nav>
+
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class=" add-container" id="add-container">
+                <h1>Add Qoute</h1>
+                <form action="" class="add-form">
+                    <div class="inputs">
+                        <input id="author_name" type="text" title="Author Name" placeholder="Author Name" />
+                        <input id="quote" type="text" title="Quote" placeholder="Quote" />
+
+                    </div>
+                    <button type="submit" class="add-btn" id="addQuote">Add</button>
+                </form>
+            </div>
+
+        </div>
+        <div class="quotes-data" id="quotes-data">
+            <div class="card quotes-container">
+                <div class="card-content">
+                    <div class="card lists">
+                        <div class="quote-text">
+                            <span id="quote">Nobody will believe in you unless you believe in yourself.</span>
+                        </div>
+                        <div class="quote-author">
+
+                        </div>
+                        <div class="buttons-container">
+                            <span id="author"><b>Buddha</b></span>
+                            <a class="copy-btn" id="copy" title="Copy">
+                                <i class="bi bi-clipboard"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card lists">
+                        <div class="quote-text">
+                            <span id="quote">Nobody will believe in you unless you believe in yourself.</span>
+                        </div>
+                        <div class="quote-author">
+
+                        </div>
+                        <div class="buttons-container">
+                            <span id="author"><b>Buddha</b></span>
+                            <a class="copy-btn" id="copy" title="Copy">
+                                <i class="bi bi-clipboard"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card lists">
+                        <div class="quote-text">
+                            <span id="quote">Nobody will believe in you unless you believe in yourself.</span>
+                        </div>
+                        <div class="quote-author">
+
+                        </div>
+                        <div class="buttons-container">
+                            <span id="author"><b>Buddha</b></span>
+                            <a class="copy-btn" id="copy" title="Copy">
+                                <i class="bi bi-clipboard"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card lists">
+                        <div class="quote-text">
+                            <span id="quote">Nobody will believe in you unless you believe in yourself.</span>
+                        </div>
+                        <div class="quote-author">
+
+                        </div>
+                        <div class="buttons-container">
+                            <span id="author"><b>Buddha</b></span>
+                            <a class="copy-btn" id="copy" title="Copy">
+                                <i class="bi bi-clipboard"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card lists">
+                        <div class="quote-text">
+                            <span id="quote">Nobody will believe in you unless you believe in yourself.</span>
+                        </div>
+                        <div class="quote-author">
+
+                        </div>
+                        <div class="buttons-container">
+                            <span id="author"><b>Buddha</b></span>
+                            <a class="copy-btn" id="copy" title="Copy">
+                                <i class="bi bi-clipboard"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card lists">
+                        <div class="quote-text">
+                            <span id="quote">Nobody will believe in you unless you believe in yourself.</span>
+                        </div>
+                        <div class="quote-author">
+
+                        </div>
+                        <div class="buttons-container">
+                            <span id="author"><b>Buddha</b></span>
+                            <a class="copy-btn" id="copy" title="Copy">
+                                <i class="bi bi-clipboard"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card lists">
+                        <div class="quote-text">
+                            <span id="quote">Nobody will believe in you unless you believe in yourself.</span>
+                        </div>
+                        <div class="quote-author">
+
+                        </div>
+                        <div class="buttons-container">
+                            <span id="author"><b>Buddha</b></span>
+                            <a class="copy-btn" id="copy" title="Copy">
+                                <i class="bi bi-clipboard"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card lists">
+                        <div class="quote-text">
+                            <span id="quote">Nobody will believe in you unless you believe in yourself.</span>
+                        </div>
+                        <div class="quote-author">
+
+                        </div>
+                        <div class="buttons-container">
+                            <span id="author"><b>Buddha</b></span>
+                            <a class="copy-btn" id="copy" title="Copy">
+                                <i class="bi bi-clipboard"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- script -->
+    <script type="module" src="/js/firebaseConfig.js"></script>
+    <script type="module" src="js/add.js"></script>
+</body>
+
+</html>
