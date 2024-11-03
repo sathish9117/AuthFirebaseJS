@@ -25,9 +25,6 @@ onAuthStateChanged(auth, (user) => {
   }
 });
 
-const logoutBtn = document.getElementById("btnLogout");
-// const logoutBtnHome = document.getElementById("btnLogoutHome");
-
 let checkCred = () => {
   if (!loggedInUserId) {
     window.location.href = "login.html";
@@ -41,16 +38,6 @@ let checkCred = () => {
   }
 };
 window.addEventListener("load", checkCred);
-logoutBtn.addEventListener("click", () => {
-  localStorage.removeItem("loggedInUserId");
-  signOut(auth)
-    .then(() => {
-      window.location.href = "login.html";
-    })
-    .catch((error) => {
-      console.error("Error Signing out: ", error);
-    });
-});
 
 function getData() {
   const docRef = doc(db, "users", loggedInUserId);
@@ -60,9 +47,8 @@ function getData() {
     .then((docSnap) => {
       if (docSnap.exists()) {
         const userData = docSnap.data();
-        document.getElementById("profilePicIndex").src = userData.imageUrl;
-        document.getElementById("loggedUserNameTitle").innerText =
-          userData.username;
+        document.getElementById("profilePic").src = userData.imageUrl;
+        document.getElementById("loggedUserName").innerText = userData.username;
 
         console.log("userData", userData.username);
       } else {
