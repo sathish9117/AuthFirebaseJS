@@ -25,7 +25,10 @@
   margin-top: 15px;
   margin-bottom: 20px;
 }
-
+#loading i {
+  font-size: 18px;
+  color: #333;
+}
 @media screen and (max-width: 1000px) {
   .login-container {
     margin: auto 10px;

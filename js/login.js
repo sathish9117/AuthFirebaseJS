@@ -16,6 +16,9 @@ signInButton.addEventListener("click", (event) => {
     return;
   }
 
+  // Show loading
+  loadingIndicator.style.display = "block";
+
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
@@ -34,6 +37,10 @@ signInButton.addEventListener("click", (event) => {
         alert("Login failed. Please try again.");
       }
       console.error(error);
+    })
+    .finally(() => {
+      // Hide loading regardless of success or failure
+      loadingIndicator.style.display = "none";
     });
 });
 
