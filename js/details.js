@@ -10,7 +10,11 @@ import {
 } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
 const loggedInUserId = localStorage.getItem("loggedInUserId");
-const userData = document.getElementById("user-data");
+const editBtn = document.getElementById("btnEdit");
+editBtn.addEventListener("click", () => {
+  window.location.href = "editdetails.html";
+});
+
 onAuthStateChanged(auth, (user) => {
   console.log("logged user", loggedInUserId);
 
