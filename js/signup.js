@@ -60,9 +60,11 @@ async function signUpUser(email, password, username) {
       .catch((error) => {
         const errorCode = error.code;
         if (errorCode == "auth/email-already-in-use") {
-          showMessage("Email Address Already Exists !!!");
+          // showMessage("Email Address Already Exists !!!");
+          console.log("Email Address Already Exists !!!");
         } else {
-          showMessage("unable to create user", "signUpMessage");
+          // showMessage("unable to create user", "signUpMessage");
+          console.log("unable to create user", "signUpMessage");
         }
       });
   } catch (error) {
@@ -74,7 +76,6 @@ let checkCred = () => {
     // window.location.href = "register.html";
     // alert("9999 Not Log");
     console.log("Not Logged");
-    document.getElementById("not-found").innerText = "Not Found";
   } else {
     console.log("999 Logged");
     window.location.href = "details.html";
