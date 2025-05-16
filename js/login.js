@@ -1,10 +1,11 @@
-import { auth, db } from "./firebaseConfig.js";
+import { auth } from "./firebaseConfig.js";
 import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
 } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
 
 const signInButton = document.getElementById("submitSignIn");
+const loadingIndicator = document.getElementById("loading");
 
 signInButton.addEventListener("click", (event) => {
   event.preventDefault();
@@ -23,7 +24,6 @@ signInButton.addEventListener("click", (event) => {
     .then((userCredential) => {
       const user = userCredential.user;
       localStorage.setItem("loggedInUserId", user.uid);
-      console.log("Login successful");
       window.location.href = "home.html";
     })
     .catch((error) => {
