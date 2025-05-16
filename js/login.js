@@ -4,45 +4,45 @@ import {
   onAuthStateChanged,
 } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
 
-import {
-  setDoc,
-  doc,
-} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+const signInButton = document.getElementById("submitSignIn");
 
-const signIn = document.getElementById("submitSignIn");
-const loggedInUserId = localStorage.getItem("loggedInUserId");
-
-signIn.addEventListener("click", (event) => {
+signInButton.addEventListener("click", (event) => {
   event.preventDefault();
-  const email = document.getElementById("lemail").value;
-  const password = document.getElementById("lpwd").value;
+  const email = document.getElementById("lemail").value.trim();
+  const password = document.getElementById("lpwd").value.trim();
+
+  if (!email || !password) {
+    alert("Please enter both email and password.");
+    return;
+  }
+
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      console.log("Login successful");
       const user = userCredential.user;
       localStorage.setItem("loggedInUserId", user.uid);
+      console.log("Login successful");
       window.location.href = "home.html";
     })
     .catch((error) => {
       const errorCode = error.code;
-      if (errorCode === "auth/invalid-credential") {
-        console.log("Incorrect Email");
+      if (
+        errorCode === "auth/user-not-found" ||
+        errorCode === "auth/wrong-password"
+      ) {
+        alert("Incorrect email or password.");
       } else {
-        console.log("Account does not exists");
+        alert("Login failed. Please try again.");
       }
+      console.error(error);
     });
 });
 
-let checkCred = () => {
-  if (!loggedInUserId) {
-    // window.location.href = "register.html";
-    // alert("9999 Not Log");
-    console.log("Not Logged");
-    document.getElementById("not-found").innerText = "Not Found";
+// Optional: Check login status after successful login
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    console.log("User is logged in:", user.uid);
+    localStorage.setItem("loggedInUserId", user.uid);
   } else {
-    console.log("999 Logged");
-    window.location.href = "details.html";
-    alert("665 Logged");
+    console.log("User is not logged in.");
   }
-};
-window.addEventListener("load", checkCred);
+});
