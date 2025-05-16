@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Users</title>
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="styles/reg.css">
+
+    <style>
+        .user-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .user-card {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px;
+            width: 220px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .user-card:hover {
+            transform: scale(1.05);
+        }
+
+        .user-card img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            /* Ensures the image covers the circle */
+            border-radius: 50%;
+            /* border: 2px solid #888; */
+            margin-bottom: 10px;
+        }
+
+        .user-card h3 {
+            margin: 10px 0 5px;
+            font-size: 18px;
+        }
+
+        .user-card p {
+            margin: 0;
+            color: #555;
+            font-size: 14px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1 style="text-align: center;">All Registered Users</h1>
+    <div class="user-list" id="userList">
+
+    </div>
+
+    <script type="module" src="/js/firebaseConfig.js"></script>
+    <script type="module" src="/js/allusers.js"></script>
+</body>
+
+</html>
