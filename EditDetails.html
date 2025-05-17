@@ -14,11 +14,23 @@
 
     <style>
         .details {
+            padding: 10px;
+
             text-align: center;
+            width: 18%;
         }
 
         .btn {
             margin-top: 10px;
+        }
+
+
+        .usernameInput {
+            text-align: center;
+        }
+
+        .img-label {
+            cursor: pointer;
         }
     </style>
 </head>
@@ -77,35 +89,30 @@
 
     <!-- Main -->
 
-    <div class="container">
-        <!-- <div class="details">
-            <img src="./images/person.svg" alt="" id="profilePicHome">
-            <h1 id="loggedUserName"></h1>
-            <h1 id="loggedUserEmail"></h1>
-            <button class="btn" id="btnEdit">Update</button>
-            <h1 id="not-found"></h1>
-        </div> -->
+    <di class="container">
         <div class="details">
-            <img src="./images/person.svg" alt="" id="profilePicHome">
-            <!-- <h1 id="loggedUserName"></h1> -->
 
-            <h1 id="loggedUserEmail">gmail</h1>
+            <label for="imageUpload" class="img-label">
+                <img src="./images/person.svg" alt="" id="profilePicHome">
+            </label>
+            <input type="file" id="imageUpload" accept="image/*" hidden>
+            <h1 id="loggedUserEmail"></h1>
 
-            <input type="text" id="usernameInput" placeholder="Enter new name">
-            <input type="file" id="imageUpload" accept="image/*">
-            <button class="btn" id="uploadImageBtn">Upload Image</button>
-            <button class="btn" id="updateNameBtn">Update Name</button>
+            <input type="text" id="usernameInput" class="usernameInput">
 
+            <button class="btn" id="saveBtn">Save</button>
             <h1 id="not-found"></h1>
         </div>
 
-    </div>
 
-    <!-- script -->
 
-    <script type="module" src="/js/firebaseConfig.js"></script>
-    <script type="module" src="/js/details.js"></script>
-    <script type="module" src="/js/editdetails.js"></script>
+        </div>
+
+        <!-- script -->
+
+        <script type="module" src="/js/firebaseConfig.js"></script>
+        <script type="module" src="/js/details.js"></script>
+        <script type="module" src="/js/editdetails.js"></script>
 </body>
 
 </html>

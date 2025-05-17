@@ -19,56 +19,15 @@ import {
 
 const loggedInUserId = localStorage.getItem("loggedInUserId");
 const imageInput = document.getElementById("imageUpload");
-const uploadBtn = document.getElementById("uploadImageBtn");
-const updateNameBtn = document.getElementById("updateNameBtn");
 const usernameInput = document.getElementById("usernameInput");
+const saveBtn = document.getElementById("saveBtn");
 const storage = getStorage();
 
-uploadBtn.addEventListener("click", async () => {
-  const file = imageInput.files[0];
-  if (!file) {
-    alert("Please select an image file.");
-    return;
-  }
-
-  const storageRef = ref(storage, `profilePictures/${loggedInUserId}.jpg`);
-
-  try {
-    // Upload image to Firebase Storage
-    await uploadBytes(storageRef, file);
-
-    // Get the URL of the uploaded file
-    const downloadURL = await getDownloadURL(storageRef);
-
-    // Update the user document in Firestore
-    const userRef = doc(db, "users", loggedInUserId);
-    await updateDoc(userRef, {
-      imageUrl: downloadURL,
-    });
-
-    // Update profile images on page
-    document.getElementById("profilePic").src = downloadURL;
-    document.getElementById("profilePicHome").src = downloadURL;
-
-    alert("Image uploaded successfully!");
-  } catch (error) {
-    console.error("Error uploading image:", error);
-    alert("Failed to upload image.");
-  }
-});
-
 onAuthStateChanged(auth, (user) => {
-  console.log("logged user", loggedInUserId);
-
-  checkCred();
-  if (loggedInUserId) {
-    getData();
-    // window.location.href = "index.html"; // Redirect to index page
-    // alert("552 Logged");
+  if (!user || !loggedInUserId) {
+    window.location.href = "login.html";
   } else {
-    console.log("User Id Not Found in local storage");
-    window.location.href = "login.html"; // Redirect to login page
-    // alert("289 Logged");
+    getData();
   }
 });
 
@@ -77,51 +36,34 @@ const logoutBtn = document.getElementById("btnLogout");
 let checkCred = () => {
   if (!loggedInUserId) {
     window.location.href = "login.html";
-    // alert("9999 Not Log");
-    console.log("Not Logged");
-    console.log("logged user", loggedInUserId);
-
     document.getElementById("not-found").innerText = "Not Found";
-  } else {
-    console.log("999 Logged");
-
-    // alert("665 Logged");
   }
 };
 window.addEventListener("load", checkCred);
-logoutBtn.addEventListener("click", () => {
-  localStorage.removeItem("loggedInUserId");
-  signOut(auth)
-    .then(() => {
-      window.location.href = "login.html";
-    })
-    .catch((error) => {
-      console.error("Error Signing out: ", error);
-    });
-});
+if (logoutBtn) {
+  logoutBtn.addEventListener("click", () => {
+    localStorage.removeItem("loggedInUserId");
+    signOut(auth)
+      .then(() => {
+        window.location.href = "login.html";
+      })
+      .catch((error) => {
+        console.error("Error Signing out: ", error);
+      });
+  });
+}
 
-updateNameBtn.addEventListener("click", async () => {
-  const newName = usernameInput.value.trim();
-
-  if (!newName) {
-    alert("Please enter a valid name.");
-    return;
-  }
-
-  try {
-    const userRef = doc(db, "users", loggedInUserId);
-    await updateDoc(userRef, {
-      username: newName,
-    });
-
-    document.getElementById("loggedUserNameTitle").innerText = newName;
-    alert("Name updated successfully!");
-  } catch (error) {
-    console.error("Error updating name:", error);
-    alert("Failed to update name.");
+// Browse image
+document.getElementById("imageUpload").addEventListener("change", function () {
+  const file = this.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      document.getElementById("profilePicHome").src = e.target.result;
+    };
+    reader.readAsDataURL(file);
   }
 });
-
 function getData() {
   const docRef = doc(db, "users", loggedInUserId);
   console.log(docRef);
@@ -146,3 +88,66 @@ function getData() {
       console.log("Error getting Document", error);
     });
 }
+
+async function updateName() {
+  const newName = usernameInput.value.trim();
+
+  if (!newName) {
+    alert("Please enter a valid name.");
+    return;
+  }
+
+  try {
+    const userRef = doc(db, "users", loggedInUserId);
+    await updateDoc(userRef, {
+      username: newName,
+    });
+
+    document.getElementById("loggedUserNameTitle").innerText = newName;
+  } catch (error) {
+    alert("Failed to update name.");
+  }
+}
+
+async function updateImage() {
+  const file = imageInput.files[0];
+  if (!file) {
+    alert("Please select an image file.");
+    return;
+  }
+
+  const storageRef = ref(storage, `profilePictures/${loggedInUserId}.jpg`);
+
+  try {
+    // Upload image to Firebase Storage
+    await uploadBytes(storageRef, file);
+
+    // Get the URL of the uploaded file
+    const downloadURL = await getDownloadURL(storageRef);
+
+    // Update the user document in Firestore
+    const userRef = doc(db, "users", loggedInUserId);
+    await updateDoc(userRef, {
+      imageUrl: downloadURL,
+    });
+
+    // Update profile images on page
+    document.getElementById("profilePic").src = downloadURL;
+    document.getElementById("profilePicHome").src = downloadURL;
+  } catch (error) {
+    console.error("Error uploading image:", error);
+    alert("Failed to upload image.");
+  }
+}
+
+saveBtn.addEventListener("click", async function () {
+  try {
+    await updateName();
+    await updateImage();
+
+    // ✅ Alert after both operations succeed
+    alert("Profile updated successfully!");
+  } catch (error) {
+    alert("There was a problem updating your profile.", error);
+  }
+});
