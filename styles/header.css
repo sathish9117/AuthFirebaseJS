@@ -90,3 +90,68 @@ ul {
 .logout-btn {
   padding: 5px 15px;
 }
+
+@media (max-width: 768px) {
+  header {
+    height: auto;
+    padding: 10px 0;
+  }
+
+  .head-container {
+    border: 1px solid;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .logo {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .middle-menu ul {
+    width: 100%;
+  }
+  nav {
+    width: 100%;
+  }
+  .user-data ul {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .quote-text {
+    font-size: 1.8rem;
+  }
+
+  .long-quote {
+    font-size: 1.5rem;
+  }
+
+  .fa-quote-left {
+    font-size: 2.5rem;
+  }
+
+  .quote-author {
+    font-size: 1.2rem;
+  }
+
+  .content-container {
+    padding: 15px;
+    width: 90%;
+  }
+
+  .buttons-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  button {
+    width: 100%;
+    padding: 0.5rem;
+  }
+
+  #add {
+    font-size: 28px;
+  }
+}

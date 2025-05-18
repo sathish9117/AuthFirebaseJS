@@ -139,15 +139,15 @@ async function updateImage() {
     alert("Failed to upload image.");
   }
 }
-
-saveBtn.addEventListener("click", async function () {
-  try {
-    await updateName();
-    await updateImage();
-
-    // ✅ Alert after both operations succeed
-    alert("Profile updated successfully!");
-  } catch (error) {
-    alert("There was a problem updating your profile.", error);
-  }
-});
+if (saveBtn) {
+  saveBtn.addEventListener("click", async () => {
+    try {
+      await updateName();
+      await updateImage();
+      alert("✅ Profile updated successfully!");
+    } catch (error) {
+      console.error("Profile update failed:", error);
+      alert("⚠️ Failed to update profile. " + (error.message || ""));
+    }
+  });
+}
